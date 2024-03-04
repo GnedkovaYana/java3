@@ -17,7 +17,6 @@
 <html>
 <head>
     <title>Files</title>
-    <link rel="stylesheet" href="files.css">
 </head>
 <body>
 
@@ -26,7 +25,6 @@
     <p>${formattedDate}</p>
     <h1><%=path%></h1>
     <p>
-        <img src="icons8-папка-симлинк-100.png" alt="">
         <a href=<%="?path=" + parentDirectoryPath%>>Вверх</a>
     </p>
     <table>
@@ -41,7 +39,6 @@
         %>
         <tr>
             <th>
-                <img src="icons8-папка-48.png" alt="">
                 <a href="<%="files?path=" + directory.getAbsolutePath()%>"><%=directory.getName() + "/"%></a>
             </th>
             <th></th>
@@ -55,7 +52,6 @@
         %>
         <tr>
             <th>
-                <img src="icons8-файл-128.png" alt="">
                 <a href=<%="download?path=" + file.getAbsolutePath()%>><%=file.getName()%></a>
             </th>
             <th><%=file.length() + " B"%></th>

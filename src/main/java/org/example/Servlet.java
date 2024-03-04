@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/")
 public class Servlet extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
 
         FileService fileService = new FileService();
-        String path = request.getParameter("path");
+        String path = req.getParameter("path");
         File[] directories = fileService.getDirectories(path);
 
         if (directories == null) {
@@ -29,8 +29,8 @@ public class Servlet extends HttpServlet {
             files = new File[0];
         }
 
-        request.setAttribute("directories", directories);
-        request.setAttribute("files", files);
-        request.getRequestDispatcher("servlet.jsp").forward(request, response);
+        req.setAttribute("directories", directories);
+        req.setAttribute("files", files);
+        req.getRequestDispatcher("servlet.jsp").forward(req, resp);
     }
 }
